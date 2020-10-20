@@ -1,0 +1,64 @@
+---
+title: "615 Project1"
+author: "Xijia Luo"
+date: "October 20, 2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+```
+
+## Purpose
+
+This is an presentation about EDA on my cleaned berry data
+
+## Slide with Bullets
+
+- Data preview
+- Data summary
+- Histograms
+- Boxplot on Chemical
+- Boxplot on State
+
+
+## Data preview
+```{r}
+data1<- read.csv("unfoodr_1.csv")
+head(data1)
+```
+
+
+## Data summary
+```{r}
+summary(data1)
+```
+
+## Histograms
+```{r}
+# histograms of least and most variance variables
+h1 <- ggplot(data1, aes(Value))
+h1 <- h1 + geom_histogram(breaks = seq(0, 60, by = 2), col = "black", fill = "light blue")
+print(h1)
+```
+
+## Boxplot on Chemical
+```{r}
+# boxplot of Chemical type
+bp1 <- ggplot(data1, aes(x = Chemical, y = Value))
+bp1 <- bp1 + geom_boxplot() +
+  labs(x = "Chemical type")
+bp1
+```
+
+## Boxplot on State
+
+```{r}
+# boxplot of State
+bp1 <- ggplot(data1, aes(x = State, y = Value))
+bp1 <- bp1 + geom_boxplot() +
+  labs(x = "State")
+bp1
+```
+
